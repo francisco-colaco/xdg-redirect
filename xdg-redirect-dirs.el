@@ -85,22 +85,22 @@ In this directory, applications should store runtime files."
   :tag "XDG runtime home directory")
 
 
-(defcustom user-emacs-directory-prefix "emacs"
+(defcustom xdg-redirect-directory-prefix "emacs"
   "The prefix to the directories."
   :group 'xdg-redirect-dirs
   :type 'directory
   :tag "Prefix for user directories.")
 
 
-(defcustom user-emacs-data-directory
-  (expand-file-name user-emacs-directory-prefix xdg-dirs-data-home)
+(defcustom xdg-redirect-data-directory
+  (expand-file-name xdg-redirect-directory-prefix xdg-dirs-data-home)
   "The directory where Emacs packages should store data files."
   :group 'xdg-redirect-dirs
   :type 'directory
-  :tag "User-Emacs data directory")
+  :tag "XDG data directory")
 
 
-(defcustom user-emacs-config-directory
+(defcustom xdg-redirect-config-directory
   (expand-file-name "config" xdg-dirs-config-home)
   "The directory where Emacs packages should store configuration files."
   :group 'xdg-redirect-dirs
@@ -108,16 +108,16 @@ In this directory, applications should store runtime files."
   :tag "User Emacs config directory")
 
 
-(defcustom user-emacs-cache-directory
-  (expand-file-name user-emacs-directory-prefix xdg-dirs-cache-home)
+(defcustom xdg-redirect-cache-directory
+  (expand-file-name xdg-redirect-directory-prefix xdg-dirs-cache-home)
   "The directory where Emacs packages should store cache files."
   :group 'xdg-redirect-dirs
   :type 'directory
   :tag "User Emacs cache directory")
 
 
-(defcustom user-emacs-runtime-directory
-  (expand-file-name user-emacs-directory-prefix xdg-dirs-runtime-home)
+(defcustom xdg-redirect-runtime-directory
+  (expand-file-name xdg-redirect-directory-prefix xdg-dirs-runtime-home)
   "The directory where Emacs packages should store runtime files."
   :group 'xdg-redirect-dirs
   :type 'directory
@@ -125,16 +125,16 @@ In this directory, applications should store runtime files."
 
 
 ;;;###autoload
-(defun user-emacs-set-directory-prefix (prefix &optional change-user-dirs)
-  "Set the PREFIX for the user-emacs directory.
+(defun xdg-redirect-set-directory-prefix (prefix &optional change-user-dirs)
+  "Set the PREFIX for the xdg-redirect directory.
 
-The prefix will also change the user-emacs directories if
+The prefix will also change the XDG Emacs directories if
 CHANGE-USER-DIRS is non-nil."
-  (setq user-emacs-directory-prefix prefix)
+  (setq xdg-redirect-directory-prefix prefix)
   (if (not (null change-user-dirs))
-      (setq user-emacs-data-directory (expand-file-name user-emacs-directory-prefix xdg-dirs-data-home)
-            user-emacs-cache-directory (expand-file-name user-emacs-directory-prefix xdg-dirs-cache-home)
-            user-emacs-runtime-directory (expand-file-name user-emacs-directory-prefix xdg-dirs-runtime-home))))
+      (setq xdg-redirect-data-directory (expand-file-name xdg-redirect-directory-prefix xdg-dirs-data-home)
+            xdg-redirect-cache-directory (expand-file-name xdg-redirect-directory-prefix xdg-dirs-cache-home)
+            xdg-redirect-runtime-directory (expand-file-name xdg-redirect-directory-prefix xdg-dirs-runtime-home))))
 
 
 (provide 'xdg-redirect-dirs)
