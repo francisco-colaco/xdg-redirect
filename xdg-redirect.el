@@ -3,8 +3,10 @@
 ;; Copyright (C) 2026  Francisco Miguel Colaço
 
 ;; Author: Francisco Miguel Colaço <francisco.colaco@gmail.com>
+;; Maintainer: Francisco Miguel Colaço <francisco.colaco@gmail.com>
 ;; Version: 1.0.0
 ;; Package-Requires: ((emacs "27.1"))
+;; URL: https://github.com/franciscocolaco/xdg-redirect
 ;; Keywords: convenience
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -55,7 +57,7 @@
 (defun xdg-redirect-locate-file (filename &optional dir)
   "Locate FILENAME in the XDG directories.
 
-The directory defaults to ‘user-emacs-data-directory’."
+The directory defaults to `user-emacs-data-directory'."
   (declare (side-effect-free t))
   (expand-file-name filename (or dir user-emacs-data-directory)))
 
