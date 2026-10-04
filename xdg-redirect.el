@@ -100,7 +100,7 @@
 
 ;;;###autoload
 (defun xdg-redirect-set-directory-prefix (prefix &optional update-dirs)
-  "Set the PREFIX for XDG emacs subdirectories.
+  "Set the PREFIX for XDG Emacs subdirectories.
 If UPDATE-DIRS is non-nil, update active user directory variables."
   (setq xdg-redirect-directory-prefix prefix)
   (when update-dirs
