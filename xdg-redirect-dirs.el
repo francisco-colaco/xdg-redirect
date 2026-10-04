@@ -3,8 +3,10 @@
 ;; Copyright (C) 2026  Francisco Miguel Colaço
 
 ;; Author: Francisco Miguel Colaço <francisco.colaco@gmail.com>
+;; Maintainer: Francisco Miguel Colaço <francisco.colaco@gmail.com>
 ;; Version: 1.0.0
 ;; Package-Requires: ((emacs "27.1"))
+;; URL: https://github.com/franciscocolaco/xdg-redirect
 ;; Keywords: convenience
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -30,6 +32,11 @@
 ;;; Code:
 
 
+(defgroup xdg-redirect ()
+  "Redirect Emacs files to XDG directories."
+  :group 'convenience)
+
+
 (defgroup xdg-redirect-dirs ()
   "Directories to redirect files from Emacs packages."
   :group 'xdg-redirect)
@@ -41,7 +48,9 @@
   "The XDG data home directory.
 
 In this directory, applications should store data files."
-  :group 'xdg-redirect-dirs)
+  :group 'xdg-redirect-dirs
+  :type 'directory
+  :tag "XDG data home directory")
 
 
 (defcustom xdg-dirs-cache-home
@@ -120,8 +129,7 @@ In this directory, applications should store runtime files."
   "Set the PREFIX for the user-emacs directory.
 
 The prefix will also change the user-emacs directories if
-CHANGE-USER-DIRS is non-nil.
-"
+CHANGE-USER-DIRS is non-nil."
   (setq user-emacs-directory-prefix prefix)
   (if (not (null change-user-dirs))
       (setq user-emacs-data-directory (expand-file-name user-emacs-directory-prefix xdg-dirs-data-home)
