@@ -7,7 +7,7 @@
 ;; Maintainer: Francisco Miguel Colaço <francisco.colaco@gmail.com>
 ;; Version: 1.0.0
 ;; Package-Requires: ((emacs "27.1"))
-;; URL: https://github.com/franciscocolaco/xdg-redirect
+;; URL: https://github.com/francisco-colaco/xdg-redirect
 ;; Keywords: convenience, files
 
 ;; This program is free software; you can redistribute it and/or modify
