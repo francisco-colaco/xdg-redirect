@@ -3,6 +3,7 @@
 ;; Copyright (C) 2026  Francisco Miguel Colaço
 
 ;; Author: Francisco Miguel Colaço <francisco.colaco@gmail.com>
+;; Assisted-by: Gemini:gemini-flash-latest
 ;; Maintainer: Francisco Miguel Colaço <francisco.colaco@gmail.com>
 ;; Version: 1.0.0
 ;; Package-Requires: ((emacs "27.1"))
