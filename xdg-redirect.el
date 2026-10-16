@@ -75,6 +75,11 @@
   :type 'string
   :group 'xdg-redirect)
 
+(defun xdg-redirect--config-directory-file-name (&optional prefix)
+  "Return the full path of the user configuration directory, with PREFIX in mind.."
+  (declare (side-effect-free t))
+  (expand-file-name (concat (or prefix "emacs") "/config") xdg-redirect-dirs-config-home))
+
 (defcustom xdg-redirect-data-directory
   (expand-file-name xdg-redirect-directory-prefix xdg-redirect-dirs-data-home)
   "The directory where Emacs packages store data files."
@@ -82,7 +87,7 @@
   :group 'xdg-redirect)
 
 (defcustom xdg-redirect-config-directory
-  (expand-file-name xdg-redirect-directory-prefix xdg-redirect-dirs-config-home)
+  (xdg-redirect--config-directory-file-name xdg-redirect-directory-prefix)
   "The directory where Emacs packages store configuration files."
   :type 'directory
   :group 'xdg-redirect)
@@ -106,7 +111,7 @@ If UPDATE-DIRS is non-nil, update active user directory variables."
   (setq xdg-redirect-directory-prefix prefix)
   (when update-dirs
     (setq xdg-redirect-data-directory (expand-file-name prefix xdg-redirect-dirs-data-home)
-          xdg-redirect-config-directory (expand-file-name prefix xdg-redirect-dirs-config-home)
+          xdg-redirect-config-directory (xdg-redirect--config-directory-file-name prefix)
           xdg-redirect-cache-directory (expand-file-name prefix xdg-redirect-dirs-cache-home)
           xdg-redirect-runtime-directory (expand-file-name prefix xdg-redirect-dirs-runtime-home))))
 
@@ -158,10 +163,10 @@ If UPDATE-DIRS is non-nil, update active user directory variables."
          (abs-user-dir (expand-file-name user-dir))
          (abs-file (expand-file-name file)))
     (cond
-     ((string-prefix-p abs-user-dir abs-file) file)
      ((string-prefix-p user-emacs-directory abs-file)
       (let ((rel-path (substring abs-file (length (expand-file-name user-emacs-directory)))))
-        (expand-file-name rel-path abs-user-dir)))
+        (xdg-redirect-locate-file rel-path user-dir)))
+     ((string-prefix-p abs-user-dir abs-file) file)
      (t (expand-file-name file abs-user-dir)))))
 
 ;;;###autoload
