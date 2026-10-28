@@ -195,11 +195,5 @@ If UPDATE-DIRS is non-nil, update active user directory variables."
   "Redirect SYMBOL file path to `xdg-redirect-runtime-directory'."
   `(xdg-redirect 'runtime ,symbol))
 
-;; Convenience aliases
-(defalias 'locate-user-emacs-cache-file #'xdg-redirect-locate-cache-file)
-(defalias 'locate-user-emacs-data-file #'xdg-redirect-locate-data-file)
-(defalias 'locate-user-emacs-config-file #'xdg-redirect-locate-config-file)
-(defalias 'locate-user-emacs-runtime-file #'xdg-redirect-locate-runtime-file)
-
 (provide 'xdg-redirect)
 ;;; xdg-redirect.el ends here

@@ -80,6 +80,22 @@ to the XDG user directories, and update the active base paths:
 (xdg-redirect-set-directory-prefix "my-emacs" t)
 ```
 
+## Aliases for conenience
+
+You can establish some aliases in your configuration, to have, on the file name
+functions, a nomenclature close to ‘locate-user-emacs-file’.  We can’t include
+those aliases in this package, per Melpa rules, since all symbols should have a
+common prefix.  You are, however, free to include the following block in your
+own configuration.
+
+```elisp
+;; Convenience aliases
+(defalias 'locate-user-emacs-cache-file #'xdg-redirect-locate-cache-file)
+(defalias 'locate-user-emacs-data-file #'xdg-redirect-locate-data-file)
+(defalias 'locate-user-emacs-config-file #'xdg-redirect-locate-config-file)
+(defalias 'locate-user-emacs-runtime-file #'xdg-redirect-locate-runtime-file)
+```
+
 ## License
 
 GPLv3+
